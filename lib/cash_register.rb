@@ -12,10 +12,11 @@ attr_accessor :total, :discount, :item, :transaction
   def add_item(title, price, quantity = 1)
     foo= 1..quantity
     foo.to_a
+    transaction = price * quantity
     foo.each do |i|
       @item << title
     end
-    @transactions << price * quantity
+    @transactions << transaction
     @total += price * quantity
   end
 
@@ -35,6 +36,6 @@ attr_accessor :total, :discount, :item, :transaction
   end
 
   def void_last_transaction
-
+    @total = @total - @transactions[-1]
   end
 end
