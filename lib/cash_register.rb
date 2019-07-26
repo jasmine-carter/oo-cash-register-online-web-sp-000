@@ -5,6 +5,7 @@ attr_accessor :total, :discount, :item, :transaction
   def initialize(employee_discount = 0)
     @item = []
     @total = 0
+    @transactions = []
     @discount = employee_discount
   end
 
@@ -14,6 +15,7 @@ attr_accessor :total, :discount, :item, :transaction
     foo.each do |i|
       @item << title
     end
+    @transactions << price * quantity
     @total += price * quantity
   end
 
